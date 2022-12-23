@@ -1,8 +1,19 @@
 package com.whathebea.taskmanagement.model;
 
+import jakarta.persistence.*;
+
+@Entity
 public class Task {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    @Column(nullable = false)
     private String description;
+
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
     private TaskStatus status;
 
     public long getId() {
